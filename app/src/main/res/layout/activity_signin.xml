@@ -55,8 +55,7 @@
             android:paddingVertical="15dp"
             android:paddingLeft="60dp"
             android:textColor="#0000"
-            tools:layout_editor_absoluteX="63dp"
-            tools:layout_editor_absoluteY="469dp" />
+             />
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"/>
