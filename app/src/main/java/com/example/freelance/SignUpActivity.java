@@ -30,21 +30,26 @@ import org.w3c.dom.Text;
 public class SignUpActivity extends AppCompatActivity {
     private EditText emailEdit, password1Edit, password2Edit;
     private Button signUpButton;
-    private TextView signUpView;
+    private TextView signInView;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
+
         firebaseAuth = FirebaseAuth.getInstance();
-        emailEdit = findViewById(R.id.email);
+        progressDialog = new ProgressDialog(this);
+
+        emailEdit = findViewById(R.id.emailEt);
         password1Edit = findViewById(R.id.password1);
         password2Edit = findViewById(R.id.password2);
-        progressDialog = new ProgressDialog(this);
-        signUpView = findViewById(R.id.signUp);
-        signUpButton.setOnClickListener(new View.OnClickListener() {
+        signInView = findViewById(R.id.signIn);
+        signUpButton = findViewById(R.id.register);
+
+
+          signInView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
@@ -52,13 +57,15 @@ public class SignUpActivity extends AppCompatActivity {
                 finish();
             }
         });
-        signUpView.setOnClickListener(new View.OnClickListener() {
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Register();
             }
         });
     }
+
     private void Register() {
         String email = emailEdit.getText().toString();
         String password1 = password1Edit.getText().toString();
@@ -76,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity {
         else if (password1.length() < 4 ){
             password1Edit.setError("Passwords length needs to be more than 4");
         }
-        else if (!isValidemail(email)){
+        else if (!isValidEmail(email)){
             emailEdit.setError("Invalid email");
         }
         progressDialog.setMessage("Please wait...");
@@ -102,7 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private Boolean isValidemail(CharSequence email) {
+    private Boolean isValidEmail(CharSequence email) {
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 

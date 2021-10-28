@@ -31,13 +31,22 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signin);
         firebaseAuth = FirebaseAuth.getInstance();
         emailEdit = findViewById(R.id.email);
         passwordEdit = findViewById(R.id.password1);
+
         signInButton = findViewById(R.id.login);
-        progressDialog = new ProgressDialog(this);
         signUpView = findViewById(R.id.signUp);
+
+        progressDialog = new ProgressDialog(this);
+
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Login();
+            }
+        });
 
         signUpView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,12 +56,8 @@ public class SignInActivity extends AppCompatActivity {
                 finish();
             }
         });
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Login();
-            }
-        });
+
+
     }
     private void Login() {
         String email = emailEdit.getText().toString();
