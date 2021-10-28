@@ -33,11 +33,11 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
-//        emailEdit = findViewById(R.id.email);
-//        passwordEdit = findViewById(R.id.password1);
-//        signInButton = findViewById(R.id.login);
+        emailEdit = findViewById(R.id.email);
+        passwordEdit = findViewById(R.id.password1);
+        signInButton = findViewById(R.id.login);
         progressDialog = new ProgressDialog(this);
-//        signUpView = findViewById(R.id.signUp);
+        signUpView = findViewById(R.id.signUp);
 
         signUpView.setOnClickListener(new View.OnClickListener() {
             @Override

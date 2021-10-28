@@ -30,7 +30,7 @@ import org.w3c.dom.Text;
 public class SignUpActivity extends AppCompatActivity {
     private EditText emailEdit, password1Edit, password2Edit;
     private Button signUpButton;
-    private TextView signInView;
+    private TextView signUpView;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
@@ -39,11 +39,11 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
-//        emailEdit = findViewById(R.id.email);
-//        password1Edit = findViewById(R.id.password1);
-//        password2Edit = findViewById(R.id.password2);
+        emailEdit = findViewById(R.id.email);
+        password1Edit = findViewById(R.id.password1);
+        password2Edit = findViewById(R.id.password2);
         progressDialog = new ProgressDialog(this);
-//        signIn = findViewById(R.id.signIn);
+        signUpView = findViewById(R.id.signUp);
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
                 finish();
             }
         });
-        signInView.setOnClickListener(new View.OnClickListener() {
+        signUpView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Register();
