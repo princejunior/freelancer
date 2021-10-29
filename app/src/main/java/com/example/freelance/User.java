@@ -10,4 +10,10 @@ public class User {
 
     private ArrayList cart;
 
+    public User(int id, String first_name, String last_name, String about_me_description) {
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.about_me_description = about_me_description;
+    }
 }

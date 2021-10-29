@@ -34,7 +34,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         firebaseAuth = FirebaseAuth.getInstance();
         emailEdit = findViewById(R.id.email);
-        passwordEdit = findViewById(R.id.password1);
+        passwordEdit = findViewById(R.id.password);
 
         signInButton = findViewById(R.id.login);
         signUpView = findViewById(R.id.signUp);
@@ -62,7 +62,8 @@ public class SignInActivity extends AppCompatActivity {
     private void Login() {
         String email = emailEdit.getText().toString();
         String password = passwordEdit.getText().toString();
-
+        System.out.println(email);
+        System.out.println(password);
 
         if (TextUtils.isEmpty(email)){
             emailEdit.setError("Enter your email");
@@ -82,7 +83,7 @@ public class SignInActivity extends AppCompatActivity {
                         if ( task.isSuccessful()) {
                             Toast.makeText(SignInActivity.this,
                                     "Successfully Registered", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
+                            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

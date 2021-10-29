@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.w3c.dom.Text;
 
 public class SignUpActivity extends AppCompatActivity {
+
     private EditText emailEdit, password1Edit, password2Edit;
     private Button signUpButton;
     private TextView signInView;
@@ -70,6 +71,9 @@ public class SignUpActivity extends AppCompatActivity {
         String email = emailEdit.getText().toString();
         String password1 = password1Edit.getText().toString();
         String password2 = password2Edit.getText().toString();
+        System.out.println(email);
+        System.out.println(password1);
+        System.out.println(password2);
 
         if (TextUtils.isEmpty(email)){
             emailEdit.setError("Enter your email");
@@ -97,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if ( task.isSuccessful()) {
                     Toast.makeText(SignUpActivity.this,
                             "Successfully Registered", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SignUpActivity.this, DashboardActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
