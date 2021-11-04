@@ -1,31 +1,41 @@
 package com.example.freelance;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.fragment.app.Fragment;
 //import android.app.Fragment;
-import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
+//    Database database;
+//    private Button uploadButton_Upload;
+//    private ProgressBar progressBar_Upload;
+//    private ImageView imageView_Upload;
+//    private Uri imageUri_Upload;
+//    MenuItem homeFragment = (MenuItem) findViewById(R.id.homeFragment);
+//    MenuItem profileFragment = (MenuItem) findViewById(R.id.profileFragment);
+//    MenuItem addFragment = (MenuItem) findViewById(R.id.addFragment);
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,13 +45,13 @@ public class MainActivity extends AppCompatActivity {
 
                     Fragment selectedFragment = null;
                     switch (item.getItemId()){
-                        case R.id.firstFragment:
+                        case R.id.homeFragment:
                             selectedFragment = new FirstFragment();
                             break;
-                        case R.id.secondFragment:
+                        case R.id.profileFragment:
                             selectedFragment = new SecondFragment();
                             break;
-                        case R.id.thirdFragment:
+                        case R.id.addFragment:
                             selectedFragment = new ThirdFragment();
                             break;
                     }
@@ -56,44 +66,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Database database = new Database();
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(navListener);
+//      Displays Bottom Navigation Bar
+        BottomNavigationView bottomNavigationView1= (BottomNavigationView) findViewById(R.id.bottomNavigationView);
+        bottomNavigationView1.setOnItemSelectedListener(navListener);
+        bottomNavigationView1.bringToFront();
 
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.beginTransaction()
-//                .replace(R.id.fragmentView, FirstFragment.class, null)
-//                .setReorderingAllowed(true)
-//                .commit();
-//        NavController navController = Navigation.findNavController(R.id.fragmentView);
+       database.createUser("JH62fdRA5ANwoJx4lDd4c0zYQ6B3", "Naruto","Uzamaki", "hdkjfhhsd fkj dsfkjh dhfs kdf");
+       database.getUser("JH62fdRA5ANwoJx4lDd4c0zYQ6B3");
+//       database.uploadUserCreatedContent();
 
-//        bottomNavigationView.setup
-//        AppBarConfiguration appBarConfiguration = AppBarConfiguration(setOf(R.id.firstFragment, R.id.secondFragment, R.id.thirdFragment));
-
-//        Toast.makeText(MainActivity.this,"Firebase connection Success", Toast.LENGTH_LONG).show();
-//
-//        // Write a message to the database
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("message");
-//
-//        myRef.setValue("Hello, World!");
-//        // Read from the database
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot.getValue(String.class);
-//                Log.d(null, "Value is: " + value);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w(null, "Failed to read value.", error.toException());
-//            }
-//        });
     }
+
+
+
+
 
 }

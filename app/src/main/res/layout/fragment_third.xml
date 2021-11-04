@@ -1,17 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ThirdFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Third Fragment"
-        android:textSize="25dp"
-        />
+    <ImageView
+        android:id="@+id/imageView_ThirdFragment"
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
 
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="556dp"
+
+        android:src="@drawable/ic_add_photo" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_ThirdFragment"
+        android:layout_width="83dp"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="166dp"
+
+        android:layout_marginTop="337dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginBottom="337dp"
+         />
+
+    <EditText
+        android:id="@+id/title_edit_ThridFragment"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="438dp"
+        android:hint="Title" />
+
+    <EditText
+        android:id="@+id/description_edit_ThirdFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="343dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="257dp"
+        android:hint="Description" />
+
+
+    <EditText
+        android:id="@+id/price_edit_ThirdFragment"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="552dp"
+
+        android:layout_marginEnd="52dp"
+
+
+        android:layout_marginBottom="140dp"
+
+
+        android:hint="Price" />
+
+    <Button
+        android:id="@+id/upload_button_ThirdFragment"
+        android:layout_width="161dp"
+        android:layout_height="67dp"
+
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/cancel_button_ThirdFragment"
+        android:text="Upload" />
+
+    <Button
+        android:id="@+id/cancel_button_ThirdFragment"
+        android:layout_width="161dp"
+        android:layout_height="67dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginStart="27dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="0dp"
+        android:text="Cancel" />
 </RelativeLayout>
