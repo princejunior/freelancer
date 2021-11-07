@@ -90,8 +90,12 @@ public class SecondFragment extends Fragment {
         recyclerViewBottom = view.findViewById(R.id.recycleViewBottom);
         databaseReferenceTop = FirebaseDatabase.getInstance().getReference("Users");
         databaseReferenceBottom = FirebaseDatabase.getInstance().getReference("Users");
+
         recyclerViewTop.setHasFixedSize(true);
         recyclerViewTop.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        recyclerViewBottom.setHasFixedSize(true);
+        recyclerViewBottom.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listTop = new ArrayList<>();
         contentViewTop = new ContentView(getActivity(), listTop);
@@ -114,7 +118,7 @@ public class SecondFragment extends Fragment {
 
         listBottom = new ArrayList<>();
         contentViewBottom = new ContentView(getActivity(), listBottom);
-        recyclerViewTop.setAdapter(contentViewBottom);
+        recyclerViewBottom.setAdapter(contentViewBottom);
 
         databaseReferenceBottom.addValueEventListener(new ValueEventListener() {
             @Override
