@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.freelance.FirstFragment"
+        android:name="com.example.freelance.FirstFagmentFiles.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" />
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.example.freelance.SecondFragment"
+        android:name="com.example.freelance.SecondFragmentFiles.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
     <fragment

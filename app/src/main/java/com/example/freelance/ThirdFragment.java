@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.freelance.SecondFragmentFiles.User;
 import com.example.freelance.createContent.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -176,9 +177,9 @@ public class ThirdFragment extends Fragment {
                         //                  stores the data in database and storage
                         @Override
                         public void onSuccess(Uri uri) {
+                        User user = new User("JH62fdRA5ANwoJx4lDd4c0zYQ6B3", "Naruto","Uzamaki", "hdkjfhhsd fkj dsfkjh dhfs kdf");
 
-
-                            Upload contentUpload = new Upload(title, description, uri.toString(), price);
+                            Upload contentUpload = new Upload(title, description, uri.toString(), price, user.getId());
 
 
 //                        ImageUrlModel imageUrlModel = new ImageUrlModel(uri.toString());

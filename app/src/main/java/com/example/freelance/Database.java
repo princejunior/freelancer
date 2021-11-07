@@ -1,26 +1,13 @@
 package com.example.freelance;
 
-import android.content.ContentResolver;
 import android.net.Uri;
 import android.util.Log;
-import android.view.View;
-import android.webkit.MimeTypeMap;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.freelance.SecondFragmentFiles.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 public class Database {
 

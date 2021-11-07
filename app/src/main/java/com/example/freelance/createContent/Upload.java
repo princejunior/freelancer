@@ -14,14 +14,25 @@ public class Upload {
 //    private EditText title, description, imageUrl, price;
 //    private ImageView imageView;
 
-    private String title, description, imageUrl, price;
+    private String title, description, imageUrl, price, userId;
 
-    public Upload(String title, String description, String imageUrl, String price) {
+    public Upload(String title, String description, String imageUrl, String price, String userId) {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
+        this.userId = userId;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
 
     public String getTitle() {
         return title;
