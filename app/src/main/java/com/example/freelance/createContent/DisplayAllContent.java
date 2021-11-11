@@ -1,7 +1,6 @@
 package com.example.freelance.createContent;
 
 public class DisplayAllContent {
-//    private String title, description, imageUrl, price, userId;
 
      String firstName, lastName;
      Long age;

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,17 +29,19 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class SecondFragment extends Fragment {
-    RecyclerView recyclerViewTop;
+    RecyclerView recycleProfileTop;
     RecyclerView recyclerViewBottom;
 
     DatabaseReference databaseReferenceTop;
     DatabaseReference databaseReferenceBottom;
 
     ContentView contentViewTop;
-    ContentView contentViewBottom;
+    UserContentView userContentView;
 
-    ArrayList<DisplayAllContent> listTop;
-    ArrayList<DisplayAllContent> listBottom;
+//    ArrayList<DisplayAllContent> listTop;
+    ArrayList<UserContent> listTop;
+
+    ArrayList<UserContent> listBottom;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -86,29 +89,29 @@ public class SecondFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, container, false);
 
-        recyclerViewTop = view.findViewById(R.id.recycleViewTop);
-        recyclerViewBottom = view.findViewById(R.id.recycleViewBottom);
-        databaseReferenceTop = FirebaseDatabase.getInstance().getReference("Users");
-        databaseReferenceBottom = FirebaseDatabase.getInstance().getReference("Users");
-
-        recyclerViewTop.setHasFixedSize(true);
-        recyclerViewTop.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        recyclerViewBottom.setHasFixedSize(true);
-        recyclerViewBottom.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recycleProfileTop = view.findViewById(R.id.recycleProfileTop);
+        databaseReferenceTop = FirebaseDatabase.getInstance().getReference("User_Content");
+        recycleProfileTop.setHasFixedSize(true);
+        recycleProfileTop.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listTop = new ArrayList<>();
-        contentViewTop = new ContentView(getActivity(), listTop);
-        recyclerViewTop.setAdapter(contentViewTop);
+        userContentView = new UserContentView(getActivity(), listTop);
+        recycleProfileTop.setAdapter(userContentView);
 
         databaseReferenceTop.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    DisplayAllContent displayAllContent = dataSnapshot.getValue(DisplayAllContent.class);
-                    listTop.add(displayAllContent);
+
+                    UserContent userContent = dataSnapshot.getValue(UserContent.class);
+                    listTop.add(userContent);
+                    Log.i(null, "USERS CONTENT!!!!! " + userContent.getDescription());
+//                    DisplayAllContent displayAllContent = dataSnapshot.getValue(DisplayAllContent.class);
+//                    listTop.add(displayAllContent);
                 }
-                contentViewTop.notifyDataSetChanged();
+                userContentView.notifyDataSetChanged();
+
+//                contentViewTop.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -116,24 +119,7 @@ public class SecondFragment extends Fragment {
             }
         });
 
-        listBottom = new ArrayList<>();
-        contentViewBottom = new ContentView(getActivity(), listBottom);
-        recyclerViewBottom.setAdapter(contentViewBottom);
 
-        databaseReferenceBottom.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    DisplayAllContent displayAllContent = dataSnapshot.getValue(DisplayAllContent.class);
-                    listBottom.add(displayAllContent);
-                }
-                contentViewBottom.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         // Inflate the layout for this fragment
         return view;

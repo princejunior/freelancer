@@ -17,9 +17,6 @@ public class ContentView extends RecyclerView.Adapter<ContentView.ContentViewIte
     Context context;
     ArrayList<DisplayAllContent> list;
 
-//    public ContentView(FirstFragment firstFragment, ArrayList<DisplayAllContent> list) {
-//    }
-
     public ContentView(Context context, ArrayList<DisplayAllContent> list) {
         this.context = context;
         this.list = list;
@@ -50,7 +47,7 @@ public class ContentView extends RecyclerView.Adapter<ContentView.ContentViewIte
 
     public static class ContentViewItem extends RecyclerView.ViewHolder {
 
-        TextView title, description, imageUrl, price, userId, firstName, lastName, age;
+        TextView firstName, lastName, age;
 
         public ContentViewItem(@NonNull View itemView) {
             super(itemView);
